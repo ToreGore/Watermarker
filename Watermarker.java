@@ -15,15 +15,26 @@ public class Watermarker {
         this.toBeMarked = new ArrayList<>();
     }
 
-    public Watermarker(BufferedImage clean, BufferedImage watermark) {
+    public Watermarker(String clean, String watermark) {
         this.toBeMarked = new ArrayList<>();
-        this.clean = clean;
-        this.watermark = watermark;
+        try {
+            this.clean = ImageIO.read(this.getClass().getResource(clean));
+            this.watermark = ImageIO.read(this.getClass().getResource(watermark));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    public Watermarker(ArrayList<BufferedImage> toBeMarked, BufferedImage watermark) {
-        this.toBeMarked = toBeMarked;
-        this.watermark = watermark;
+    public Watermarker(ArrayList<String> toBeMarked, String watermark) {
+        this.toBeMarked = new ArrayList<>();
+        try {
+            for (String img : toBeMarked) {
+                this.toBeMarked.add(ImageIO.read(this.getClass().getResource(img)));
+            }
+            this.watermark = ImageIO.read(this.getClass().getResource(watermark));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void markSingleImage(File destination) {

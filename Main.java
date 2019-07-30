@@ -9,13 +9,11 @@ import javax.imageio.ImageIO;
 
 public class Main {
     public static void main(String[] args) {
-        try {
-            BufferedImage clean = ImageIO.read(new File("C:/Users/Delta5/Desktop/sample_landscape.jpg"));
-            BufferedImage watermark = ImageIO.read(new File("C:/Users/Delta5/Desktop/sample_watermark.png"));
+
+            String clean = new String("/Users/Delta5/Desktop/sample_landscape.jpg");
+            String watermark = new String("/Users/Delta5/Desktop/sample_watermark.png");
             Watermarker watermarker = new Watermarker(clean, watermark);
-            watermarker.markSingleImage(new File("C:/Users/Delta5/Desktop"));
-        } catch(IOException e) {
-            e.printStackTrace();
-        }        
+            watermarker.markSingleImage(new File("/Users/Delta5/Desktop"));
+          
     }
 }
