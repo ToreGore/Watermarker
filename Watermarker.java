@@ -1,8 +1,10 @@
 import java.awt.AlphaComposite;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
+import java.io.*;
+import java.lang.*;
 import java.util.ArrayList;
+import javax.imageio.ImageIO;
 
 public class Watermarker {
 
@@ -34,7 +36,7 @@ public class Watermarker {
             int topLeftY = (clean.getHeight() - watermark.getHeight()) / 2;
             //Paints the image
             g2d.drawImage(watermark, topLeftX, topLeftY, null);
-            ImageIO.write(clean, "jpg", destination);
+            ImageIO.write(clean, "png", destination);
             g2d.dispose();
         } catch(IOException e) {
             e.printStackTrace();
@@ -43,7 +45,20 @@ public class Watermarker {
 
     public void markBatch(File destination) {
         for (BufferedImage img : toBeMarked) {
-            markSingleImage(destination);
+            try {
+                Graphics2D g2d = (Graphics2D) img.getGraphics();
+                AlphaComposite alphaChannel = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.3f);
+                g2d.setComposite(alphaChannel);
+                //Calculate image's coordinates
+                int topLeftX = (img.getWidth() - watermark.getWidth()) / 2;
+                int topLeftY = (img.getHeight() - watermark.getHeight()) / 2;
+                //Paints the image
+                g2d.drawImage(watermark, topLeftX, topLeftY, null);
+                ImageIO.write(img, "png", destination);
+                g2d.dispose();
+            } catch(IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
