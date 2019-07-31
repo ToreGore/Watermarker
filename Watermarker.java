@@ -18,8 +18,10 @@ public class Watermarker {
     public Watermarker(String clean, String watermark) {
         this.toBeMarked = new ArrayList<>();
         try {
-            this.clean = ImageIO.read(this.getClass().getResource(clean));
-            this.watermark = ImageIO.read(this.getClass().getResource(watermark));
+            File f_clean = new File(clean);
+            File f_water = new File(watermark);
+            this.clean = ImageIO.read(f_clean);
+            this.watermark = ImageIO.read(f_water);
         } catch (Exception e) {
             e.printStackTrace();
         }
