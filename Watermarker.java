@@ -29,11 +29,14 @@ public class Watermarker {
 
     public Watermarker(ArrayList<String> toBeMarked, String watermark) {
         this.toBeMarked = new ArrayList<>();
+        File f_clean;
+        File f_water = new File(watermark);
         try {
             for (String img : toBeMarked) {
-                this.toBeMarked.add(ImageIO.read(this.getClass().getResource(img)));
+                f_clean = new File(img);
+                this.toBeMarked.add(ImageIO.read(f_clean));
             }
-            this.watermark = ImageIO.read(this.getClass().getResource(watermark));
+            this.watermark = ImageIO.read(f_water);
         } catch (Exception e) {
             e.printStackTrace();
         }
