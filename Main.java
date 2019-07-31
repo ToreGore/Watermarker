@@ -12,7 +12,7 @@ public class Main {
             String clean = new String("./sample_landscape.jpg");
             String watermark = new String("./sample_watermark.png");
             Watermarker watermarker = new Watermarker(clean, watermark);
-            watermarker.markSingleImage(new File("./Desktop" + clean.substring(clean.lastIndexOf('/') + 1)));
+            watermarker.markSingleImage(new File("./Desktop_" + clean.substring(clean.lastIndexOf('/') + 1)));
           
     }
 }
