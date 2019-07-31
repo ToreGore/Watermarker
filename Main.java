@@ -9,10 +9,11 @@ import javax.imageio.ImageIO;
 
 public class Main {
     public static void main(String[] args) {
-            String clean = new String("./sample_landscape.jpg");
-            String watermark = new String("./sample_watermark.png");
-            Watermarker watermarker = new Watermarker(clean, watermark);
-            watermarker.markSingleImage(new File("./Desktop_" + clean.substring(clean.lastIndexOf('/') + 1)));
+        String clean = new String(args[0]);
+        String watermark = new String(args[1]);
+        Watermarker watermarker = new Watermarker(clean, watermark);
+        //watermarker.markSingleImage(new File("./Desktop_" + clean.substring(clean.lastIndexOf('/') + 1)));
+	watermarker.markSingleImage(new File("./Desktop_" + args[2]));
           
     }
 }
