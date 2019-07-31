@@ -25,21 +25,17 @@ public class Main {
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             answer = reader.readLine();
-            reader.close();
             switch(answer) {
                 case "+":
                     System.out.print("Path and name of watermarkable image:\t");
                     reader = new BufferedReader(new InputStreamReader(System.in));
                     image = reader.readLine();
-                    reader.close();
                     System.out.print("Path and name of watermark:\t");
                     reader = new BufferedReader(new InputStreamReader(System.in));
                     watermark = reader.readLine();
-                    reader.close();
                     System.out.print("Name of new image:\t");
                     reader = new BufferedReader(new InputStreamReader(System.in));
                     newName = reader.readLine();
-                    reader.close();
                     Watermarker watermarker = new Watermarker(image, watermark);
                     watermarker.markSingleImage(new File("./" + newName));
                     System.out.println("**Execution successful!**");
