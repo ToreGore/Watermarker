@@ -47,7 +47,7 @@ public class Main {
                     System.out.println(aboutMe());
                 break;
                 case "Stop":
-                    System.out.print("Thank you for your patronage! Have a nice day!");
+                    System.out.println("Thank you for your patronage! Have a nice day!");
                 break;
                 default:
                     System.out.println("Operation denied. Retry!");
