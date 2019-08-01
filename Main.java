@@ -15,6 +15,7 @@ public class Main {
         String watermark = new String();
         String newName = new String();
         System.out.println("Watermarking unit active");
+        WatermarkJFrame frame = new WatermarkJFrame();
         do {
             System.out.println("\tWhich action would you like to exectute?");
             System.out.println("\n>\t+\t->\tWatermark an image");
