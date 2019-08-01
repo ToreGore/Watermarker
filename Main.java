@@ -49,6 +49,7 @@ public class Main {
                 break;
                 case "Stop":
                     System.out.println("Thank you for your patronage! Have a nice day!");
+			System.exit(0);
                 break;
                 default:
                     System.out.println("Operation denied. Retry!");
